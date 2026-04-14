@@ -14,7 +14,7 @@ jobs:
           aws-region: ap-south-1
       - name: deploy code to s3 bcuer
         run: |
-        aws s3 sync ./ s3://tfstatevcubestore82734/
-        --exclude "*" \
-        --include "index.html"
+         aws s3 sync ./ s3://tfstatevcubestore82734/
+         --exclude "*" \
+         --include "index.html"
      
