@@ -1,12 +1,20 @@
-name: Git repo checkout
-on: workflow_dispatch
+name: Deploy static website to S3
+on: push
 jobs:
-  build:
-   runs-on: ubuntu-latest
-   steps:
-     - name: checkout
-       uses: actions/checkout@v4
-     - name: print content
-       run: cat index.html
-
+  Deploy:
+    runs-on: ubuntu latest
+    steps:
+      - name: checkout from github
+        uses: actions/checkout@4
+      - name: configure aws creds
+        uses: aws-actions/configure-aws-credentials@v4
+        with: 
+          aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
+          aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+          aws-region: ap-south-1
+      - name: deploy code to s3 bcuer
+        run: |
+        aws s3 sync ./ s3://tfstatevcubestore82734/
+        --exclude "*" \
+        --include "index.html"
      
