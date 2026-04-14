@@ -1,10 +1,12 @@
-name: Hello
+name: Git repo checkout
 on: workflow_dispatch
 jobs:
   build:
    runs-on: ubuntu-latest
    steps:
-     - name: hello krishna
-       run: echo ${{ secrets.CLOUD_PASSWORD }}
+     - name: checkout
+       uses: actions/checkout@v4
+     - name: print content
+       run: cat index.html
 
      
