@@ -2,7 +2,7 @@ name: Deploy static website to S33
 on: push
 jobs:
   Deploy:
-    runs-on: ubuntu latest
+    runs-on: ubuntu-latest
     steps:
       - name: checkout from github
         uses: actions/checkout@4
