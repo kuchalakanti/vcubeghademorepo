@@ -1,4 +1,4 @@
-name: Deploy static website to S3
+name: Deploy static website to S33
 on: push
 jobs:
   Deploy:
