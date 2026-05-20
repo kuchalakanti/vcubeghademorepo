@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run if branch is main
-        if: github.ref == 'refs/heads/main'
+        if: github.ref_name == 'main'
         run: echo " this is if demo"
       - name: run this step
         run: echo " this is without condition"
